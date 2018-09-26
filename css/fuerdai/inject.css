@@ -1,0 +1,3 @@
+.head .log, .video-body p, .top-link, .notice, .page-foot, .foot-d, [target=_blank], [class^=ps_] {
+	display: none !important;
+}
