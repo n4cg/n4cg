@@ -1,3 +1,3 @@
 [
-{"name": "富二代在线", "gateways": [{"title": "线路一", "url": "http://f2dnb9.com"}, {"title": "线路二", "url": "http://f2dqb1.com"}, {"title": "线路三", "url": "http://f2dqb2.com"}]}
+{"name": "富二代在线", "inject": {"js": "https://raw.githubusercontent.com/n4cg/n4cg/master/js/fuerdai/inject.js", "css": "https://raw.githubusercontent.com/n4cg/n4cg/master/js/fuerdai/inject.css"}, "gateways": [{"title": "线路一", "url": "http://f2dnb9.com"}, {"title": "线路二", "url": "http://f2dqb1.com"}, {"title": "线路三", "url": "http://f2dqb2.com"}]}
 ]
