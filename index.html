@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>H聚合下载</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+			}
+			button {
+				width: 70%;
+				border-radius: 30px;
+				display: inline-block;
+				margin-bottom: 20px;
+			}
+			.logo {
+				width: 40%;
+				display: inline-block;
+				margin-bottom: 20px;
+			}
+			.info p {
+				line-height: 1.5;
+				font-size: 15px;
+				color: #333;
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="display: inline-block;margin-top: 100px;width: 100%;">
+			<img class="logo" src="logo.png">
+			<button type="button" class="btn btn-outline-primary android-download">安卓下载</button>
+			<button type="button" class="btn btn-outline-success ios-download" disabled>iOS下载（暂无）</button>
+			<div class="info">
+				<p>H聚合，各种你懂的资源</p>
+				<p>在线观看，永久免费，后续还会不断增加资源~</p>
+				<p>视频，小说（即将添加），动漫本子（即将添加）都有哦~</p>
+			</div>
+		</div>
+		<script>
+			document.querySelector('.android-download').onclick = function () {
+				location.href = 'hjuhe.apk';
+			};
+		</script>
+	</body>
+</html>
