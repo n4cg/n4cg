@@ -77,22 +77,18 @@
 				this.innerHTML = this.getAttribute('data-loading-text');
 				document.getElementById('download_frame').src = 'hjuhe.apk';
 				_hmt.push(['_trackEvent', '安卓', '下载']);
-			};
-			
-			document.getElementById('download_frame').onload = function () {
-				toast('开始下载');
-				var elements = document.getElementsByClassName('btn');
-				for (var i in elements) {
-					var ele = elements[i];
-					if (ele.innerHTML == '请稍等') {
-						ele.innerHTML = ele.getAttribute('data-text');
-						ele.removeAttribute('disabled');
+				toast('即将开始下载，3秒后若无反应请重新点击下载');
+				setTimeout(function () {
+					var elements = document.getElementsByClassName('btn');
+					for (var i in elements) {
+						var ele = elements[i];
+						if (ele.innerHTML == ele.getAttribute('data-loading-text')) {
+							ele.innerHTML = ele.getAttribute('data-text');
+							ele.removeAttribute('disabled');
+							break;
+						}
 					}
-				}
-			};
-			
-			document.getElementById('download_frame').onerror = function () {
-				toast('下载失败，请检查网络'); // 想法很美好，现实很残酷，压根就没有onerror
+				}, 1500);
 			};
 			
 			(function() {
