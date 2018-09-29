@@ -30,32 +30,77 @@
 				color: #333;
 				margin-bottom: 0;
 			}
+			#tips {
+				position: fixed;
+				bottom: 49%;
+				width: 100%;
+				text-align: center;
+			}
+			#tips #tips-text {
+				display: inline-block;
+				font-size: 14px;
+				background: #000;
+				color: #fff;
+				padding: 5px 15px;
+			}
 		</style>
 	</head>
 	<body>
 		<div style="display: inline-block;margin-top: 100px;width: 100%;">
 			<img class="logo" src="logo.png">
-			<button type="button" class="btn btn-outline-primary android-download">安卓下载</button>
-			<button type="button" class="btn btn-outline-success ios-download" disabled>iOS下载（暂无）</button>
+			<button type="button" data-loading-text="请稍等" data-text="安卓下载" class="btn btn-outline-primary android-download">安卓下载</button>
+			<button type="button" data-loading-text="请稍等" data-text="iOS下载（暂无）" class="btn btn-outline-success ios-download" disabled>iOS下载（暂无）</button>
 			<div class="info">
 				<p>H聚合，各种你懂的资源</p>
 				<p>在线观看，永久免费，后续还会不断增加资源~</p>
 				<p>视频，小说（即将添加），动漫本子（即将添加）都有哦~</p>
 			</div>
+			<iframe src="about:blank" id="download_frame" style="display: none;"></iframe>
+			<div id="tips" style="display: none;"><div id="tips-text"></div></div>
 		</div>
 		<script>
+			var _hmt = _hmt || [];
+			var toastTimer = null;
+			function toast(text) {
+				document.getElementById('tips-text').innerHTML = text;
+				document.getElementById('tips').style.display = 'block';
+				if (toastTimer != null) {
+					clearTimeout(toastTimer);
+				}
+				toastTimer = setTimeout(function () {
+					document.getElementById('tips').style.display = 'none';
+				}, 1500);
+			}
+			
 			document.querySelector('.android-download').onclick = function () {
-				location.href = 'hjuhe.apk';
+				this.setAttribute('disabled', 'disabled');
+				this.innerHTML = this.getAttribute('data-loading-text');
+				document.getElementById('download_frame').src = 'hjuhe.apk';
+				_hmt.push(['_trackEvent', '安卓', '下载']);
 			};
+			
+			document.getElementById('download_frame').onload = function () {
+				toast('开始下载');
+				var elements = document.getElementsByClassName('btn');
+				for (var i in elements) {
+					var ele = elements[i];
+					if (ele.innerHTML == '请稍等') {
+						ele.innerHTML = ele.getAttribute('data-text');
+						ele.removeAttribute('disabled');
+					}
+				}
+			};
+			
+			document.getElementById('download_frame').onerror = function () {
+				toast('下载失败，请检查网络'); // 想法很美好，现实很残酷，压根就没有onerror
+			};
+			
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?c7a1c68c06ea29236b0a37e7ec150fda";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
 		</script>
-		<!-- GoStats JavaScript Based Code -->
-		<script type="text/javascript" src="https://ssl.gostats.com/js/counter.js"></script>
-		<script type="text/javascript">_gos='monster.gostats.cn';_goa=504808;
-		_got=5;_goi=1;_gol='店铺计数器';_GoStatsRun();</script>
-		<noscript><a target="_blank" title="店铺计数器" 
-		href="http://gostats.cn"><img alt="店铺计数器" 
-		src="https://ssl.gostats.com/bin/count/a_504808/t_5/i_1/ssl_monster.gostats.cn/counter.png" 
-		style="border-width:0" /></a></noscript>
-		<!-- End GoStats JavaScript Based Code -->
 	</body>
 </html>
