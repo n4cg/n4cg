@@ -58,9 +58,16 @@
 				color: #fff;
 				padding: 5px 15px;
 			}
+			.progress-bar {
+				transition: width 50ms ease !important;
+				-webkit-transition: width 50ms ease !important;
+			}
 		</style>
 	</head>
 	<body>
+		<div class="progress" style="height: 2px;">
+			<div class="progress-bar" role="progressbar" style="width: 0%;"></div>
+		</div>
 		<div style="display: inline-block;margin-top: 100px;width: 100%;">
 			<img class="logo" src="logo.png">
 			<button type="button" data-loading-text="请稍等" data-text="安卓下载" class="btn btn-primary android-download">安卓下载</button>
@@ -102,18 +109,30 @@
 				this.innerHTML = this.getAttribute('data-loading-text');
 				download_android();
 				_hmt.push(['_trackEvent', '安卓', '下载']);
-				toast('即将开始下载，3秒后若无反应请重新点击下载');
-				setTimeout(function () {
-					var elements = document.getElementsByClassName('btn');
-					for (var i in elements) {
-						var ele = elements[i];
-						if (ele.innerHTML == ele.getAttribute('data-loading-text')) {
-							ele.innerHTML = ele.getAttribute('data-text');
-							ele.removeAttribute('disabled');
-							break;
-						}
+				toast('即将开始下载，5秒后若无反应请重新点击下载');
+				
+				var finish = (new Date()).valueOf() + 5000;
+				var progressTimer = setInterval(function () {
+					var sy = finish - (new Date()).valueOf();
+					if (sy <= 0) {
+						sy = 0;
+						clearInterval(progressTimer);
+						setTimeout(function () {
+							document.querySelector('.progress-bar').style.width = '0%';
+							var elements = document.getElementsByClassName('btn');
+							for (var i in elements) {
+								var ele = elements[i];
+								if (ele.innerHTML == ele.getAttribute('data-loading-text')) {
+									ele.innerHTML = ele.getAttribute('data-text');
+									ele.removeAttribute('disabled');
+									break;
+								}
+							}
+						}, 50);
 					}
-				}, 2000);
+					var percent = (((5000 - sy) / 5000) * 100).toFixed(2);
+					document.querySelector('.progress-bar').style.width = percent + '%';
+				}, 50);
 			};
 			
 			(function() {
