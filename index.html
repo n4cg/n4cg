@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<title>H聚合下载</title>
-		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 		<style>
 			html, body {
 				width: 100%;
@@ -12,6 +12,21 @@
 				margin: 0;
 				padding: 0;
 				text-align: center;
+			}
+			body {
+				background: url(background.jpg) no-repeat;
+				background-size: cover;
+			}
+			body::after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: "";
+				background-color: #fff;
+				opacity: 0.7;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
 			}
 			button {
 				width: 70%;
@@ -48,8 +63,8 @@
 	<body>
 		<div style="display: inline-block;margin-top: 100px;width: 100%;">
 			<img class="logo" src="logo.png">
-			<button type="button" data-loading-text="请稍等" data-text="安卓下载" class="btn btn-outline-primary android-download">安卓下载</button>
-			<button type="button" data-loading-text="请稍等" data-text="iOS下载（暂无）" class="btn btn-outline-success ios-download" disabled>iOS下载（暂无）</button>
+			<button type="button" data-loading-text="请稍等" data-text="安卓下载" class="btn btn-primary android-download">安卓下载</button>
+			<button type="button" data-loading-text="请稍等" data-text="iOS下载（暂无）" class="btn btn-success ios-download" disabled>iOS下载（暂无）</button>
 			<div class="info">
 				<p>H聚合，各种你懂的资源</p>
 				<p>在线观看，永久免费，后续还会不断增加资源~</p>
