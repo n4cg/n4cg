@@ -1,3 +1,3 @@
-.play [class^=logo], .head .log, .video-body p, .top-link, .notice, .page-foot, .foot-d, [target=_blank], [class^=ps_] {
+.play [class^=logo], .head .log, .video-body p, .top-link, .notice, .page-foot, .foot-d, [target=_blank], [class^=ps_], .ad-recommend {
 	display: none !important;
 }
