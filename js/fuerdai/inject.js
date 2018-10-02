@@ -9,3 +9,4 @@ var ad_idzone = "3148446",
   script.src = 'https://ads.exosrv.com/popunder1000.js';
   document.body.appendChild(script);
 })();
+alert('test')
