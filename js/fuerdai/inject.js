@@ -2,7 +2,7 @@ var ad_idzone = "3148446",
       ad_popup_fallback = false,
       ad_frequency_period = 180,
       ad_frequency_count = 1,
-      ad_trigger_method = 1;
+      ad_trigger_method = 3;
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
