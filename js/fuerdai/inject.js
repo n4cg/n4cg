@@ -1,6 +1,6 @@
 window.open = function (url) {
       var web = plus.webview.open(url, 'popunder-ad');
-      return {location: {href: function (url) {web.evalJS('location.href = "' + url + '";');}}};
+      return null;
 }
 var ad_idzone = "3148446",
       ad_popup_fallback = false,
