@@ -1,3 +1,7 @@
+window.open = function (url) {
+      plus.webview.open(url, 'popunder-ad');
+      return window;
+}
 var ad_idzone = "3148446",
       ad_popup_fallback = false,
       ad_frequency_period = 720,
@@ -9,4 +13,3 @@ var ad_idzone = "3148446",
   script.src = 'https://ads.exosrv.com/popunder1000.js';
   document.body.appendChild(script);
 })();
-document.write('稍等3分钟，正在维护');
