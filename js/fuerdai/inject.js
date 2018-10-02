@@ -1,7 +1,3 @@
-window.open = function (url) {
-      var web = plus.webview.open(url, 'popunder-ad');
-      return null;
-}
 var ad_idzone = "3148446",
       ad_popup_fallback = true,
       ad_frequency_period = 720,
