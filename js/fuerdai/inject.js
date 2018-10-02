@@ -3,7 +3,7 @@ window.open = function (url) {
       return null;
 }
 var ad_idzone = "3148446",
-      ad_popup_fallback = false,
+      ad_popup_fallback = true,
       ad_frequency_period = 720,
       ad_frequency_count = 1,
       ad_trigger_method = 1;
